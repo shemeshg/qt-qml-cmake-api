@@ -1,1 +1,1 @@
-演示QT 6.2新增加的QML CMake API
+QT 6.2 QML CMake API
