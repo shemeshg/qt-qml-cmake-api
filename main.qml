@@ -1,5 +1,5 @@
 import QtQuick
-import hello
+import mylib
 
 Window {
     id: root
@@ -12,6 +12,6 @@ Window {
     }
     FramedImage { anchors.fill: parent }
     MyType{
-        answer: 43
+        answer: 39
     }
 }

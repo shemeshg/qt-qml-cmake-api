@@ -10,6 +10,7 @@ int MyType::answer() const {
   return 9;
 }
 
-void MyType::setAnswer(int answer) const {
+void MyType::setAnswer(int answer)  {
   std::cout << "setAnswer " << answer << std::endl;
+  emit answerChanged();
 }
