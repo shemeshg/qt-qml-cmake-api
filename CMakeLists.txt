@@ -12,14 +12,18 @@ qt_add_executable(myapp
         main.cpp
         )
 
-target_link_libraries(myapp PRIVATE Qt6::Gui Qt6::Quick)
+add_subdirectory(mylib)
+
+target_link_libraries(myapp PRIVATE Qt6::Gui Qt6::Quick 
+        mylib )
+
+
 
 qt6_add_qml_module(myapp
         URI hello
         VERSION 1.0
-        SOURCES
-            mytype.h mytype.cc
         QML_FILES
-            main.qml FramedImage.qml
-        RESOURCES
-            img/cat.jpeg)
+            main.qml 
+    )
+
+

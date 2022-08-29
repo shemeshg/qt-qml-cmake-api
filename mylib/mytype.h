@@ -12,10 +12,15 @@ class MyType : public QObject
 {
   Q_OBJECT
       QML_ELEMENT
-  Q_PROPERTY(int answer READ answer WRITE setAnswer)
- public:
+  Q_PROPERTY(int answer READ answer WRITE setAnswer NOTIFY answerChanged)
+signals:
+    void answerChanged();
+
+public:
   int answer() const;
-  void setAnswer(int answer) const;
+  void setAnswer(int answer);
+
+
 };
 
 #endif //HELLO_MYTYPE_H
