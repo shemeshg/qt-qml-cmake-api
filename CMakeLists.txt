@@ -15,7 +15,8 @@ qt_add_executable(myapp
 add_subdirectory(mylib)
 
 target_link_libraries(myapp PRIVATE Qt6::Gui Qt6::Quick 
-        mylib )
+        mylib
+    )
 
 
 

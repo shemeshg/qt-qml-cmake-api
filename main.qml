@@ -2,16 +2,29 @@ import QtQuick
 import mylib
 
 Window {
+
+
     id: root
     visible: true
     Text {
-        text: "Hello, world!"
+        id: d
+        text: "123 " + framedImg.mytypeModelExport.name
         anchors.centerIn: parent
         color: "#000"
         z: 2
     }
-    FramedImage { anchors.fill: parent }
-    MyType{
-        answer: 39
+
+    FramedImage {
+        id: framedImg
+        anchors.fill: parent
+        anchors.centerIn: parent
+
     }
+
+    /*
+    MyType {
+        id: mytypemodel
+    }
+    */
+
 }

@@ -7,19 +7,35 @@
 
 #include <QObject>
 #include <qqmlregistration.h>
+#include <iostream>
+#include <QtQuick/QQuickItem>
+#include <QQmlEngineExtensionPlugin>
 
 class MyType : public QObject
 {
-  Q_OBJECT
-      QML_ELEMENT
-  Q_PROPERTY(int answer READ answer WRITE setAnswer NOTIFY answerChanged)
+
+    Q_OBJECT
+        Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged FINAL)
+    QML_ELEMENT
+
 signals:
-    void answerChanged();
+    void nameChanged();
 
 public:
-  int answer() const;
-  void setAnswer(int answer);
+    MyType(QObject *parent=nullptr);
 
+    //explicit MyType(QObject *parent = nullptr);
+    QString name() const {
+        return "FROM BACKEND";
+    };
+
+    void setName(const QString &name){
+        m_name = name;
+        emit nameChanged();
+    }
+
+private:
+    QString m_name;
 
 };
 

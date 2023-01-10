@@ -3,14 +3,8 @@
 //
 
 #include "mytype.h"
-#include <iostream>
 
-int MyType::answer() const {
-  std::cout << "answer" << std::endl;
-  return 9;
-}
+MyType::MyType(QObject *parent):QObject(parent)
+{
 
-void MyType::setAnswer(int answer)  {
-  std::cout << "setAnswer " << answer << std::endl;
-  emit answerChanged();
 }
