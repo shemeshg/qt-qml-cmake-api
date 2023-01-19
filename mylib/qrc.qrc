@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>FramedImage.qml</file>
+        <file>img/cat.jpeg</file>
+    </qresource>
+</RCC>
