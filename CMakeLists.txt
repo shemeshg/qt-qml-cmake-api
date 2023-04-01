@@ -41,3 +41,19 @@ set_target_properties(myapp PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
+
+# Install the executable into "${CMAKE_INSTALL_PREFIX}/bin".
+install(TARGETS myapp
+    BUNDLE  DESTINATION .
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+# Generate the deployment script for the target MyApp.
+qt_generate_deploy_qml_app_script(
+    TARGET myapp
+    OUTPUT_SCRIPT deploy_script
+    NO_UNSUPPORTED_PLATFORM_ERROR
+)
+
+# Call the deployment script on "cmake --install".
+install(SCRIPT ${deploy_script})
