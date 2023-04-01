@@ -1,8 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QQmlContext>
-
-#include "mytype.h"
+//#include <QQmlContext>
+using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
 {
@@ -10,13 +9,17 @@ int main(int argc, char *argv[])
 
 
   QQmlApplicationEngine engine;
-  //const QUrl url(u"qrc:/hello/main.qml"_qs);
-  const QUrl url("qrc:/main.qml");
+
+
+  QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
+      &app, []() { QCoreApplication::exit(-1); },
+      Qt::QueuedConnection);
 
   //QQmlContext *context = engine.rootContext();
   //MyType *myType = new MyType(&engine); //NOLINT
   //context->setContextProperty(QStringLiteral("mytypemodel"),myType);
-  engine.load(url);
+
+  engine.loadFromModule("hello", "Main");
 
   return app.exec();
 }

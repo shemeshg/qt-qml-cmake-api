@@ -11,11 +11,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick Gui REQUIRED)
 
+qt_standard_project_setup(REQUIRES 6.5)
+
 add_subdirectory(mylib)
 
 qt_add_executable(myapp
         main.cpp
-        qrc.qrc
         )
 
 
@@ -30,7 +31,7 @@ qt6_add_qml_module(myapp
         URI hello
         VERSION 1.0
         QML_FILES
-            main.qml 
+            Main.qml
     )
 
 set_target_properties(myapp PROPERTIES

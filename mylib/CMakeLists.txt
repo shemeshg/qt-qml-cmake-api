@@ -6,7 +6,6 @@ qt6_add_qml_module(mylib
             qrc.qrc
         QML_FILES
             FramedImage.qml
-            qrc.qrc
         RESOURCES
             img/cat.jpeg    )
 
