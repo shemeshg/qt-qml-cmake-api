@@ -15,11 +15,19 @@ qt_standard_project_setup(REQUIRES 6.5)
 
 add_subdirectory(mylib)
 
+
+if(APPLE)
+    # Application icon
+    set(MACOSX_BUNDLE_ICON_FILE icon.icns)
+    set(APP_ICON_MACOSX ${CMAKE_CURRENT_SOURCE_DIR}/icon.icns)
+    set_source_files_properties(${APP_ICON_MACOSX} PROPERTIES
+           MACOSX_PACKAGE_LOCATION "Resources")
+endif()
+
 qt_add_executable(myapp
         main.cpp
+        ${APP_ICON_MACOSX}
         )
-
-
 
 target_link_libraries(myapp PRIVATE Qt6::Gui Qt6::Quick 
         mylib
@@ -41,6 +49,10 @@ set_target_properties(myapp PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
+
+
+
+
 
 # Install the executable into "${CMAKE_INSTALL_PREFIX}/bin".
 install(TARGETS myapp
