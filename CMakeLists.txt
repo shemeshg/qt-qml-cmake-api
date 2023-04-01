@@ -15,8 +15,18 @@ qt_standard_project_setup(REQUIRES 6.5)
 
 add_subdirectory(mylib)
 
+if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(MACOSX TRUE)
+endif()
+if(UNIX AND NOT APPLE)
+    set(LINUX TRUE)
+endif()
+if(WIN32 OR MSVC OR MSYS OR MINGW)
+    set(WINDOWS TRUE)
+endif()
 
-if(APPLE)
+
+if(MACOSX)
     # Application icon
     set(MACOSX_BUNDLE_ICON_FILE icon.icns)
     set(APP_ICON_MACOSX ${CMAKE_CURRENT_SOURCE_DIR}/icon.icns)
