@@ -9,7 +9,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 COMPONENTS Quick Gui REQUIRED)
+find_package(Qt6 6.5 COMPONENTS Quick Gui REQUIRED)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
