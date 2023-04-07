@@ -1,5 +1,4 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/cat.jpeg</file>
     </qresource>
 </RCC>
